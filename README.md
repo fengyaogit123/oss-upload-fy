@@ -14,4 +14,5 @@ let oss = new OssUpload({
 oss.getFileTree(__dirname + '/app-up/static');
 
 ### 上传文件
+```
 oss.uploadFile(key, value);
