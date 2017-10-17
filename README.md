@@ -1,5 +1,6 @@
 # oss-upload-fy
 # demo
+ ``` 
 let {OssUpload} = require('oss-upload-fy')
 let oss = new OssUpload({
     region: '',
