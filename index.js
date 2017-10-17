@@ -37,7 +37,7 @@ class OssUpload {
     }
     async  getFileTree(root, rootObject) {
         try {
-            if (this.isString(root)) { throw new Error("root is string!") }
+            if (!this.isString(root)) { throw new Error("root is string!") }
             let files = await this.readdir(root);
             rootObject = rootObject || { dir: root };
             for (let i in files) {
