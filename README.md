@@ -1,5 +1,5 @@
 ## demo
-### 上传文件夹
+### 阿里云OSS对象存储 上传文件夹下静态资源
 ```
 let {OssUpload} = require('oss-upload-fy')
 let oss = new OssUpload({
