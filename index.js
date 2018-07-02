@@ -35,6 +35,26 @@ class OssUpload {
         this.ossDir = op.ossDir,//远程上传目录
         this.localDir = op.localDir;//本地上传目录
     }
+    removeDir() {
+        return new Promise((re, rj) => { 
+            const me = this;
+            co(function* () {
+                console.log(me.ossDir)
+                const result = yield  me.client.list({
+                    prefix: me.ossDir
+                });
+                if (result.objects && result.objects.length > 0) {
+                    yield me.client.deleteMulti(result.objects.map(({ name }) => name));
+                    result.objects.map(({ name }) => { 
+                        console.log(`删除文件：${name}`.green)
+                    })
+                }    
+                re()
+            }).catch(err => { 
+                rj(err)
+            })
+        })
+    }
     async  getFileTree(root, rootObject) {
         try {
             if (!this.isString(root)) { throw new Error("root is string!") }
