@@ -19,6 +19,7 @@ class OssUpload {
             upFileLength: 0,//上传成功file
             ossDir: '',//远程上传目录
             localDir: '',//本地上传目录 绝对路径
+            domain:"",//上传时展示路径
         }, op);
         let { region, accessKeyId, accessKeySecret, bucket } = op;
         this.client = new OSS({
@@ -34,6 +35,7 @@ class OssUpload {
         this.upFileLength = op.upFileLength,//上传成功file
         this.ossDir = op.ossDir,//远程上传目录
         this.localDir = op.localDir;//本地上传目录
+        this.domain = op.domain
     }
     removeDir() {
         return new Promise((re, rj) => { 
@@ -98,7 +100,7 @@ class OssUpload {
     }
     uploadFile(key, value, len) {
         len = len ? len : 3;//重试次数
-        let title = `www.${this.bucket}.com/${key}`;
+        let title = this.domain?this.domain+`/${key}`:`www.${this.bucket}.com}/${key}`;
         let titleLen = 100 - title.length;
         let Msg = (type) => `${title}${'-'.repeat(titleLen <= 0 ? 1 : titleLen)} ${type}  ${++this.upFileLength}/${this.fileLength}`[type == 'success' ? 'green' : 'error'];
         let ErrorMsg = (len) => len != 0 ? `${title} 上传失败，重新上传中 还有 ${len} 次`.error : `${title} 上传失败，请手动上传或重试!`.error;
