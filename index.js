@@ -63,7 +63,7 @@ class OssUpload {
             let files = await this.readdir(root);
             rootObject = rootObject || { dir: root };
             for (let i in files) {
-                let dir = `${root}\\${files[i]}`;
+                let dir = `${root}${path.sep}${files[i]}`;
                 let fileName = files[i];
                 if (this.isFile(dir)) {
                     this.fileLength++;
@@ -129,4 +129,3 @@ class OssUpload {
 exports.OssUpload = function (op) {
     return new OssUpload(op);
 };
-
