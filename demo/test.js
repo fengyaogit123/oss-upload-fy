@@ -1,4 +1,4 @@
-const { OssUpload } = require("./index");
+const { OssUpload } = require("../index");
 const path = require("path");
 const local = path.join(__dirname, "./test");
 const oss = new OssUpload({
