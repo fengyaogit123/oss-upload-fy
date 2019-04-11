@@ -1,16 +1,18 @@
-## 用于把前端静态资源上传到阿里云oss
-
+## 用途
+#### 用于把前端静态资源上传到阿里云oss
 ## 特点
 
-### 1.上传文件的日志输出
+#### 1.上传文件的日志输出
 
-### 2.可配置的oss目录，可选择本地文件上传目录与远程上传目录
+#### 2.可配置的oss目录，可选择本地文件上传目录与远程上传目录
 
-### 3.上传异常重试机制
+#### 3.上传异常重试机制
+
+## 使用
 
 ### 以vue为例
 
-### 1.编写js文件 config/upload.js
+#### 1.编写js文件 config/upload.js
 ```
 const { OssUpload } = require("./index");
 const path = require("path");
@@ -33,7 +35,7 @@ oss.removeDir().then(() => {
 oss.getFileTree(local);
 
 ```
-### 2.在package.json 中新增命令 打包后就会上传oss
+#### 2.在package.json 中新增命令 打包后就会上传oss
 ```
   {
     "scripts":{
