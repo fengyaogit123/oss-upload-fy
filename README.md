@@ -52,4 +52,4 @@ oss.getFileTree(local);
 #### 3.执行  npm run build-upload  打包后上传oss
 
 #### 4.结果图片
-!(https://github.com/fengyaogit123/oss-upload-fy/blob/master/001.png)
+![1.jpg](https://github.com/fengyaogit123/oss-upload-fy/blob/master/001.png)
