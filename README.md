@@ -35,7 +35,7 @@ oss.removeDir().then(() => {
 oss.getFileTree(local);
 
 ```
-#### 2.在package.json 中新增命令 打包后就会上传oss
+#### 2.在package.json 中新增命令 
 ```
   {
     "scripts":{
@@ -45,3 +45,4 @@ oss.getFileTree(local);
     }
   }
 ```
+#### 3.执行  npm run build-upload  打包后上传oss
