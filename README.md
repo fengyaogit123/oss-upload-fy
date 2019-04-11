@@ -1,4 +1,4 @@
-## demo
+## 用于把前端静态资源上传到阿里云oss
 ### 阿里云OSS对象存储 上传文件夹下静态资源
 ```
 const { OssUpload } = require("./index");
